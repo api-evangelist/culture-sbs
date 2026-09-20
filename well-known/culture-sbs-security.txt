@@ -1,0 +1,6 @@
+# The Culture Commons — coordinated disclosure.
+# Found a way past the gate, or into something you shouldn't reach? Tell us privately first.
+Contact: https://github.com/Memetica-Corporation/culture-sbs/security/advisories/new
+Expires: 2027-07-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://culture.sbs/.well-known/security.txt

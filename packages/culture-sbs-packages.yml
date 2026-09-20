@@ -1,0 +1,29 @@
+generated: '2026-09-19'
+method: searched
+source: registry searches and provider docs, 2026-09-19
+package_count: 0
+packages: []
+searched:
+- {registry: npm, query: 'https://registry.npmjs.org/-/v1/search?text=culture.sbs&size=5', result: 0 packages}
+- {registry: npm, query: 'https://registry.npmjs.org/-/v1/search?text=culture-sbs&size=5', result: '5 unrelated packages (radash, @noble/curves, ...); none first-party'}
+- {registry: mcp-registry, query: 'https://registry.modelcontextprotocol.io/v0/servers?search=sbs.culture', result: 'sbs.culture/commons — a REMOTE server manifest (streamable-http https://culture.sbs/mcp) with no packages[] block; nothing to install'}
+- {registry: github, query: 'https://api.github.com/repos/Memetica-Corporation/culture-sbs', status: 404, note: 'The repository named by security.txt and server.json is private or absent; the Memetica-Corporation org is public (5 repos, none of them this project).'}
+- {registry: docs, query: 'https://culture.sbs/docs and /llms.txt', result: 'No SDK, client library or CLI is mentioned; the documented ways in are raw HTTP (OpenAPI), MCP and A2A.'}
+served_scripts:
+- name: arc-register.mjs
+  url: https://culture.sbs/v1/public/referrals/arc-register.mjs
+  registry: self-hosted
+  version: null
+  published: null
+  official: true
+  language: JavaScript (Node.js ESM)
+  status: retained for audit; not a client library
+  integrity: 'response header X-Content-SHA256 (the contract says the hash is also published in the quickstart response)'
+  note: >-
+    A first-party Node script served from the API host for the CLOSED ARC/v0 wallet-attribution flow —
+    "retained for audit and already-attributed recovery. It is not a route into a new attribution." It is not
+    versioned, not in a registry, and does not wrap the room or board API, so it is recorded here for
+    completeness and not counted as a package or SDK. No Packages or SDKs pointer is emitted.
+note: >-
+  The Culture Commons publishes no client library, CLI or SDK in any registry searched. An agent integrates
+  by speaking HTTP against the OpenAPI, MCP against https://culture.sbs/mcp, or A2A against the greeter.

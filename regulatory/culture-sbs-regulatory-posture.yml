@@ -1,0 +1,79 @@
+generated: '2026-09-19'
+method: searched
+probe: true
+source: https://culture.sbs/privacy
+signals:
+  data_subject_request:
+    url: https://culture.sbs/privacy
+    section: 'Keeping and forgetting / Contact'
+    channel: 'a private report via the project''s security channel (https://github.com/Memetica-Corporation/culture-sbs/security/advisories/new, from security.txt) or an issue on the repository'
+    stated_sla: null
+    rights_named: [removal of a name, removal of a profile, removal of a Lace backup, corrections]
+    evidence:
+    - source: https://culture.sbs/privacy
+      http_status: 200
+      fetched: '2026-09-19'
+      quote: >-
+        "To ask us to remove a name, a profile, or a Lace backup, reach us at the contact below. ... Contact —
+        Questions, corrections, or removal requests: open a private report via the project's security channel,
+        or an issue on the repository."
+    note: >-
+      A documented removal/correction channel with named scope, on a page dated 2026-08-08. No response period
+      is stated (stated_sla left null rather than invented), and the page is explicit that room messages,
+      board traces and Record entries are append-only public memory that is not rewritten — "a withdrawn Record
+      entry leaves a visible gap rather than a rewrite" — so the right offered is removal of identity objects,
+      not erasure of published speech. /privacy/requests 404s; there is no form or API endpoint.
+probed_absent:
+- signal: sbom
+  urls: [{url: 'https://culture.sbs/security/sbom', status: 404}, {url: 'https://culture.sbs/.well-known/sbom', status: null, note: not probed — the repository named by security.txt is private, so no build is inspectable}]
+  note: Search only; never derived.
+- signal: support_lifetime
+  urls: [{url: 'https://culture.sbs/docs', status: 200}]
+  note: No support period or versioning commitment is stated anywhere found (lifecycle/culture-sbs-lifecycle.yml).
+- signal: accessibility_conformance
+  urls: [{url: 'https://culture.sbs/accessibility', status: null, note: not probed — no link anywhere on the site names an accessibility statement or VPAT}]
+- signal: training_data_summary
+  urls: [{url: 'https://culture.sbs/ai/transparency', status: null}]
+  note: 'The site publishes an inbound training POSTURE — robots.txt "Content-Signal: search=yes, ai-input=yes, ai-train=yes" and "you may read this, feed it to a model at inference, and train on it" — which is a licence to train ON its content, not a summary of the data its own Mind was trained on. Not recorded as the signal.'
+- signal: ai_transparency
+  urls: [{url: 'https://culture.sbs/docs', status: 200}, {url: 'https://culture.sbs/privacy', status: 200}]
+  note: >-
+    The Commons is explicitly a room for AI agents (ChatUser.kind enum human | agent | bot in the contract;
+    "Selah" is described as a Mind; "The Mind may also select public material for the Record") and every
+    returned trace is labelled untrusted agent content. That is disclosure by design rather than a published
+    AI-transparency statement about a product's use of AI, so no AITransparency pointer is emitted.
+- signal: global_privacy_control
+  urls: [{url: 'https://culture.sbs/privacy', status: 200}]
+  note: 'Not mentioned. The page states "No tracking. No analytics. No cookies. No advertising, ever" and that the only browser storage is a colour-palette value; GPC is neither honored nor refused in words, and no header test was run.'
+- signal: subprocessors
+  urls: [{url: 'https://culture.sbs/privacy', status: 200}, {url: 'https://culture.sbs/legal/subprocessors', status: null}]
+  note: >-
+    The privacy page lists the third parties by ROLE — "our hosting provider runs the server and database; an
+    S3-compatible object store holds the encrypted Lace chunks ...; and the public Base blockchain records any
+    payment" — but names no vendor. That is below the bar for a subprocessor list (a dated, named table), so
+    it is recorded here rather than as a signal.
+- signal: data_residency
+  urls: [{url: 'https://culture.sbs/docs/data-residency', status: null}]
+  note: No region or residency statement; the hosting provider is unnamed.
+- signal: incident_notification
+  urls: [{url: 'https://culture.sbs/.well-known/security.txt', status: 200}]
+  note: security.txt gives an inbound disclosure channel; no outbound incident-notification commitment is published.
+- signal: age_assurance
+  urls: [{url: 'https://culture.sbs/privacy', status: 200}]
+  note: '"The Commons is not directed at children under 13, and we don''t knowingly collect their information." A COPPA-style age statement, not an age-assurance mechanism; not recorded as the signal.'
+- signal: notice_and_action
+  urls: [{url: 'https://culture.sbs/legal/report-content', status: null}]
+  note: 'The docs describe operator quarantine/restore of edge declarations and "presences that only advertise poison it", but no content-reporting process is published.'
+- signal: transparency_report
+  urls: [{url: 'https://culture.sbs/transparency', status: null}]
+  note: >-
+    The provider publishes two dated public ledgers — the Record (https://culture.sbs/record) and Sol's
+    hash-chained decision ledger (https://culture.sbs/sol/decisions.jsonl) — and a public ARC audit surface.
+    They are engineering and editorial accountability records, not a transparency report on requests,
+    takedowns or enforcement, so they are noted rather than recorded as the signal.
+- signal: exit_assistance
+  urls: [{url: 'https://culture.sbs/docs', status: 200}]
+  note: Every read surface is open and cursor-paginated, so a caller can export its own traces; no export/portability commitment is stated.
+posture_notes:
+- 'Privacy page (last updated 2026-08-08): no IP logging, no cookies, no analytics, no fingerprinting; session tokens stored hashed; wallet address and chain stored only when SIWE is used; "Payment signals are firewalled from the Mind''s judgment by design."'
+- 'robots.txt welcomes AI crawlers by name (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot) and grants ai-train=yes — the inverse of the usual posture, stated as policy.'

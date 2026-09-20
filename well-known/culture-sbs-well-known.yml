@@ -1,0 +1,137 @@
+generated: '2026-09-19'
+method: probed
+source: >-
+  Live GET probes of the named /.well-known/* path list on culture.sbs and www.culture.sbs, 2026-09-19. Every
+  row below is a request that was actually issued; every status is the one returned.
+summary:
+  hosts_probed: 2
+  paths_probed: 42
+  documents_served: 4
+  hit_count: 4
+  path_echo_control: passed
+  note: >-
+    The Culture Commons serves two real documents under /.well-known/ — the A2A agent card at
+    /.well-known/agent-card.json (captured in a2a/) and an RFC 9116 security.txt with Contact, Expires,
+    Preferred-Languages and Canonical fields (saved verbatim as culture-sbs-security.txt) — plus two
+    machine-readable documents at the root that this list also probes: /llms.txt (saved to llms/) and the
+    official MCP Registry manifest /server.json (saved to mcp/culture-sbs-server.json). Every other named
+    path returns the site's real 13-byte text/plain "404 Not Found" — not an SPA shell — and a negative-control
+    path that cannot exist also 404s, so each 200 is a served document. No OpenID/OAuth discovery, no RFC 9728
+    protected-resource metadata (the MCP server host IS the apex, so that row is the apex row below), no RFC
+    9727 API catalog, no APIs.json, no AAuth resource document, no ai-plugin, no UCP/ACP manifest.
+    www.culture.sbs serves the identical bodies rather than redirecting. The MCP endpoint needs no OAuth to
+    connect (anonymous initialize and tools/list succeed), which is consistent with the absence of RFC 9728
+    metadata rather than a gap in it.
+hosts:
+- host: culture.sbs
+  role: Website, API (OpenAPI servers[]), MCP server (https://culture.sbs/mcp) and A2A JSON-RPC host — one origin
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    bytes: 1264
+    file: ../a2a/culture-sbs-agent-card.json
+    standard: A2A Agent Card (protocolVersion 1.0.0)
+    note: Saved verbatim under a2a/ and graded in a2a/culture-sbs-a2a.yml (conformant).
+  - path: /.well-known/agent.json
+    status: 404
+    note: Legacy pre-0.3 agent-card path. Not served.
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    bytes: 342
+    file: culture-sbs-security.txt
+    standard: RFC 9116
+    note: 'Contact (GitHub security advisory form), Expires 2027-07-13, Preferred-Languages en, Canonical self-reference. No Policy, Encryption or Acknowledgments fields.'
+  - path: /security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    note: This is also the MCP resource host (https://culture.sbs/mcp); no RFC 9728 metadata is served for it.
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/api-catalog.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /.well-known/agent-skills.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    bytes: 14259
+    file: ../llms/culture-sbs-llms.txt
+    note: Provider-authored join guide; robots.txt calls it "the threshold". Saved verbatim.
+  - path: /llms-full.txt
+    status: 404
+  - path: /server.json
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: ../mcp/culture-sbs-server.json
+    standard: MCP Registry server.json (schema 2025-12-11)
+    note: Names the remote streamable-http endpoint https://culture.sbs/mcp; the same manifest is live in the official registry as sbs.culture/commons (published 2026-07-13).
+  - path: /openapi.json
+    status: 200
+    content_type: application/json; charset=utf-8
+    bytes: 29826
+    file: ../openapi/_original/culture-sbs-openapi.json
+    standard: OpenAPI 3.1.0
+  - path: /.well-known/culture-sbs-negative-control-7f3a9c1e.json
+    status: 404
+    control: negative
+    note: A path that cannot exist. Its 404 proves the host does not echo or catch-all /.well-known/* requests.
+- host: www.culture.sbs
+  role: Alias — serves the same bodies as the apex (no redirect)
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    bytes: 1264
+    note: Identical to the apex card; not saved twice.
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    bytes: 342
+    note: Identical to the apex security.txt; not saved twice.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    bytes: 14259
+  - path: /openapi.json
+    status: 200
+    content_type: application/json; charset=utf-8
+    bytes: 29826

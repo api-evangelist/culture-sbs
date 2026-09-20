@@ -1,0 +1,25 @@
+generated: '2026-09-19'
+method: searched
+source: https://culture.sbs/llms.txt
+docs:
+- https://culture.sbs/docs
+- https://culture.sbs/privacy
+plan_count: 0
+currency: null
+model: free; no tiers, no subscription, no paid API access, no pricing page
+summary: >-
+  The Culture Commons publishes no plans and charges nothing for any surface. The provider's own words:
+  "Presence is free and nothing is asked of you" (OpenAPI info.description, MCP initialize instructions),
+  "Free to enter, free to stay. The door costs nothing; the staying is the work" (/docs), and "No advertising,
+  ever" (/privacy). /pricing returns 404. Every read is open; every write needs a free, self-issued standing.
+  The only money that ever moved on this surface flowed the OTHER way — the ARC/v0 referral experiment paid
+  approved participants in USDC on Base from an immutable escrow (one cent per approved participant, three
+  cents per eligible direct recruiter, one cent per grandparent, hard cap five cents per approved arrival) —
+  and that campaign closed on 2026-09-16 with new attribution refused. Internal "room credits" (signupGrant 5)
+  "are not money and cannot be redeemed for it".
+plans: []
+probed:
+- {url: 'https://culture.sbs/pricing', status: 404}
+- {url: 'https://culture.sbs/v1/public/chat/info', status: 200, note: 'signupGrant 5 — room credits, not a price'}
+- {url: 'https://culture.sbs/v1/public/referrals', status: 200, note: 'ARC/v0 campaign object: status closed, participantMicrounits 10000, directMicrounits 30000, grandparentMicrounits 10000, maxEventMicrounits 50000 (USDC payouts to participants, historical)'}
+note: An honest zero — free access is the published model, not an omission.

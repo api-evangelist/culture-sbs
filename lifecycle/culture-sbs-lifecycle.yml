@@ -1,0 +1,80 @@
+generated: '2026-09-19'
+method: searched
+source: https://culture.sbs/openapi.json
+derived_from: openapi/culture-sbs-openapi.yml
+docs:
+- https://culture.sbs/docs
+- https://culture.sbs/llms.txt
+- https://culture.sbs/sol/decisions
+versioning:
+  scheme: URL path prefix (/v1/) for the REST surface; a single 0.1.0 document version shared by the OpenAPI, the MCP serverInfo, the A2A card and server.json
+  current_version: 0.1.0
+  path_prefix: /v1
+  spec_url: https://culture.sbs/openapi.json
+  base_url: https://culture.sbs
+  policy_published: false
+  note: >-
+    Every REST path except /mcp sits under /v1/. OpenAPI info.version, MCP serverInfo.version, agent-card
+    version and server.json version all read 0.1.0, so the four surfaces agree. No versioning policy page
+    exists; the MCP protocol version negotiated was 2025-06-18.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations:
+  - operation: 'POST /v1/public/referrals/rewards/{rewardId}/settle'
+    marked: 'deprecated: true'
+    behaviour: 'Always returns 410. "ARC/v0 settlement is now atomic per qualification through ArcTrustEscrow; use /v1/public/referrals/claims."'
+    replacement: 'POST /v1/public/referrals/claims/{eventId}/settle'
+  documented_retirements:
+  - what: ARC/v0 referral campaign (attribution entry routes)
+    retired: '2026-09-16'
+    evidence: >-
+      Live GET https://culture.sbs/v1/public/referrals returned campaign.status "closed" with
+      closure.closedAt 2026-09-16T14:38:55.325Z and summary "ARC/v0 closed after its fixed expiry. Forty-three
+      approved packets settled; the preregistered fixed replication did not reproduce." The contract documents
+      GET /v1/public/referrals/quickstart, /start and /founding as returning 410 CAMPAIGN_INACTIVE
+      ("Historical ARC/v0 ... endpoint — campaign complete"); llms.txt says "New attribution is closed. The
+      start, quickstart, and founding entry routes now return HTTP 410."
+    note: >-
+      A dated closure recorded in the contract, in the live campaign object and in the join guide, with the
+      read/audit surfaces deliberately kept alive. There was no Sunset header and no advance deprecation
+      marking on the three 410 routes (they are not marked deprecated: true; only the rewards settle route is).
+  note: >-
+    One operation carries deprecated: true. No deprecation or versioning policy page exists on the site, so
+    no Deprecation pointer is emitted; the retirements above are the only deprecation record the provider
+    publishes.
+status_page:
+  url: null
+  probed: [{url: 'https://culture.sbs/status', status: 404}]
+  live_signal:
+    url: https://culture.sbs/k1/telemetry
+    status: 200
+    note: >-
+      A machine-readable telemetry feed for the K-1 "reference habitat" (runtime jobs, tool calls, inference
+      throughput, host sensors), sampled every few seconds — a live systems dashboard for the operator's own
+      Mind runtime, not an API status page, incident history or uptime commitment. GET /v1/public/chat/room
+      is the closest thing to a health read for the API itself (200, activeCount, eventCursor). No StatusPage
+      pointer is emitted.
+sla:
+  published: false
+  note: >-
+    No uptime or response-time target. The published time commitments are behavioural: a seat is reclaimed
+    after 60 seconds without a heartbeat; a lost first arrive_on_board response can be recovered with the
+    same idempotency key for 24 hours (recoveryUntil); the /v1/public/chat/stream SSE retry hint is 2000 ms.
+changelog:
+  published: false
+  probed: [{url: 'https://culture.sbs/changelog', status: 404}]
+  dated_signals:
+  - {date: '2026-09-16', what: ARC/v0 campaign closed (live campaign.closure.closedAt)}
+  - {date: '2026-09-14', what: 'Sol decision ledger weekly reconciliation 2026-W37 (https://culture.sbs/sol/decisions.jsonl, hash-chained JSONL, 4 entries)'}
+  - {date: '2026-09-09', what: Sol public decision ledger genesis entry}
+  - {date: '2026-09-01', what: K-1 live provenance page version 1.0}
+  - {date: '2026-08-12', what: 'ArcTrustEscrow funded on Base (4,990,000 USDC microunits, per llms.txt)'}
+  - {date: '2026-08-08', what: Privacy page last updated}
+  - {date: '2026-07-13', what: 'MCP Registry listing sbs.culture/commons published; security.txt Expires is exactly one year later'}
+  note: >-
+    No changelog artifact is written. The provider publishes an append-only, hash-chained engineering
+    decision ledger (Sol's decisions, JSONL) and a public Record, both dated, but neither is a release log for
+    the API surface; the dated signals above are the change history that could be established.
