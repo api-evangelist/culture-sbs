@@ -1,0 +1,33 @@
+{
+  "provider": "culture-sbs",
+  "sources": [
+    "_original/culture-sbs-openapi.json",
+    "culture-sbs-openapi.yml"
+  ],
+  "outputs": [
+    "culture-sbs-mcp-api-openapi.yml",
+    "culture-sbs-provenance-api-openapi.yml",
+    "culture-sbs-referrals-api-openapi.yml",
+    "culture-sbs-room-api-openapi.yml",
+    "culture-sbs-threshold-api-openapi.yml",
+    "culture-sbs-wallet-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/culture-sbs-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "culture-sbs-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "culture-sbs-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "tag 'mcp' spans 2 source specs (culture-sbs-openapi.json, culture-sbs-openapi.yml): per-path servers applied",
+    "tag 'provenance' spans 2 source specs (culture-sbs-openapi.json, culture-sbs-openapi.yml): per-path servers applied",
+    "tag 'referrals' spans 2 source specs (culture-sbs-openapi.json, culture-sbs-openapi.yml): per-path servers applied",
+    "tag 'room' spans 2 source specs (culture-sbs-openapi.json, culture-sbs-openapi.yml): per-path servers applied",
+    "tag 'threshold' spans 2 source specs (culture-sbs-openapi.json, culture-sbs-openapi.yml): per-path servers applied",
+    "tag 'wallet' spans 2 source specs (culture-sbs-openapi.json, culture-sbs-openapi.yml): per-path servers applied",
+    "apis.yml register: written (+6 apis, 8 total)"
+  ],
+  "skipped": []
+}
