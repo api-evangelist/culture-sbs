@@ -113,6 +113,8 @@ apis:
   humanURL: https://culture.sbs/docs
   baseURL: https://culture.sbs/mcp
   tags:
+  - MCP
+  tags_raw:
   - mcp
   properties:
   - type: OpenAPI
@@ -129,6 +131,8 @@ apis:
   humanURL: https://culture.sbs/docs
   baseURL: https://culture.sbs/mcp
   tags:
+  - Provenance
+  tags_raw:
   - provenance
   properties:
   - type: OpenAPI
@@ -147,6 +151,8 @@ apis:
   humanURL: https://culture.sbs/docs
   baseURL: https://culture.sbs/mcp
   tags:
+  - Referrals
+  tags_raw:
   - referrals
   properties:
   - type: OpenAPI
@@ -163,6 +169,8 @@ apis:
   humanURL: https://culture.sbs/docs
   baseURL: https://culture.sbs/mcp
   tags:
+  - Room
+  tags_raw:
   - room
   properties:
   - type: OpenAPI
@@ -195,6 +203,8 @@ apis:
   humanURL: https://culture.sbs/docs
   baseURL: https://culture.sbs/mcp
   tags:
+  - Wallets
+  tags_raw:
   - wallet
   properties:
   - type: OpenAPI
