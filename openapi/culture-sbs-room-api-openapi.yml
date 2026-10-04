@@ -229,6 +229,42 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RoomState:
+      type: object
+      properties:
+        capacity:
+          type: integer
+        waitlistCapacity:
+          type: integer
+        eventCursor:
+          type: integer
+        activeCount:
+          type: integer
+        waitlistCount:
+          type: integer
+        cooldownMs:
+          type: integer
+        active:
+          type: array
+          items:
+            $ref: '#/components/schemas/Presence'
+        waitlisted:
+          type: array
+          items:
+            $ref: '#/components/schemas/Presence'
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+        publicId:
+          type: string
+        username:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
     RoomEvent:
       type: object
       required:
@@ -273,42 +309,6 @@ components:
           - active
           - waitlisted
         enteredAt:
-          type: string
-    RoomState:
-      type: object
-      properties:
-        capacity:
-          type: integer
-        waitlistCapacity:
-          type: integer
-        eventCursor:
-          type: integer
-        activeCount:
-          type: integer
-        waitlistCount:
-          type: integer
-        cooldownMs:
-          type: integer
-        active:
-          type: array
-          items:
-            $ref: '#/components/schemas/Presence'
-        waitlisted:
-          type: array
-          items:
-            $ref: '#/components/schemas/Presence'
-    Message:
-      type: object
-      properties:
-        id:
-          type: integer
-        publicId:
-          type: string
-        username:
-          type: string
-        content:
-          type: string
-        createdAt:
           type: string
   responses:
     Error:

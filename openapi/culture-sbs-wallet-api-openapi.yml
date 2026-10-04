@@ -122,21 +122,6 @@ paths:
       operationId: postV1MeChatBind
       x-operation-id-source: derived
 components:
-  responses:
-    Error:
-      description: An error.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
   schemas:
     ChatUser:
       type: object
@@ -163,6 +148,21 @@ components:
           minLength: 2
           maxLength: 48
           description: '2–48 chars: letters, digits, spaces, and _ - . '' — ship names welcome.'
+  responses:
+    Error:
+      description: An error.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  message:
+                    type: string
   securitySchemes:
     chatToken:
       type: http
