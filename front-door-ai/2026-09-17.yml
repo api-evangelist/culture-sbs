@@ -1,0 +1,30 @@
+# Front Door AI Index — culture-sbs — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: culture-sbs
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: culture.sbs
+  final_host: culture.sbs
+  ownership: own
+  owner: culture-sbs
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 1
+  band: 2
+  band_label: trace
+  host_score: 1
+  density: 1.93
+  words: 517
+  tiers:
+    agentic: 0
+    core: 1
+    model: 0
+  ambiguous: 8
+  top_terms:
+    agent: 7
+    AI: 1
+    intelligence: 1
