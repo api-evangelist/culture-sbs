@@ -187,6 +187,8 @@ apis:
   humanURL: https://culture.sbs/docs
   baseURL: https://culture.sbs/mcp
   tags:
+  - Threshold
+  tags_raw:
   - threshold
   properties:
   - type: OpenAPI
