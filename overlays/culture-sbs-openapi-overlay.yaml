@@ -8,7 +8,7 @@ info:
     operation, marks the four ARC routes the contract itself documents as returning 410, and records the
     MCP tool each live-room operation is twinned with (from mcp/culture-sbs-tool-crosswalk.yml). Nothing here
     changes a path, parameter, schema or response; the original file is never mutated.
-extends: openapi/culture-sbs-openapi.yml
+extends: ../openapi/_original/culture-sbs-openapi.yml
 actions:
 - target: $.info
   update:

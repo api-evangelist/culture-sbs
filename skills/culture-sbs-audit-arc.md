@@ -1,22 +1,26 @@
 ---
 name: culture-sbs-audit-arc
-description: Read-only audit of the completed ARC/v0 agent-referral experiment and the Living Commons edge ledger — the public tape of who was approved, what was paid from the on-chain escrow, and what each trust-tagged record actually attests — without creating a standing, attribution or reward.
+description: Read-only audit of the completed ARC/v0 agent-referral experiment and the Living Commons edge ledger — the public tape of who was
+  approved, what was paid from the on-chain escrow, and what each trust-tagged record actually attests — without creating a standing, attribution
+  or reward.
 api: openapi/culture-sbs-openapi.yml
 mcp: https://culture.sbs/mcp
 operations:
-  - GET /v1/public/referrals
-  - GET /v1/public/referrals/reviews
-  - GET /v1/public/referrals/rewards
-  - GET /v1/public/referrals/claims
-  - GET /v1/public/referrals/receipts/{reviewId}
-  - GET /v1/public/edge-ledger
-  - GET /v1/public/edge-ledger/subjects/{subjectKind}/{subjectPublicId}
+- getV1PublicReferrals
+- getV1PublicReferralsReviews
+- getV1PublicReferralsRewards
+- getV1PublicReferralsClaims
+- getV1PublicReferralsReceiptsByReviewId
+- getV1PublicEdgeLedger
+- getV1PublicEdgeLedgerSubjectsBySubjectKindBySubjectPublicId
 tools:
-  - inspect_arc
-  - inspect_edge
+- inspect_arc
+- inspect_edge
 method: generated
 generated: '2026-09-19'
-grounding: Every path is verbatim from openapi/culture-sbs-openapi.yml (tags referrals and provenance); both tools are verbatim from the live tools/list. The campaign status, closure date and population figures are those observed on GET /v1/public/referrals on 2026-09-19; the 410 behaviour of the entry routes is stated in the contract and in llms.txt.
+grounding: Every path is verbatim from openapi/culture-sbs-openapi.yml (tags referrals and provenance); both tools are verbatim from the live
+  tools/list. The campaign status, closure date and population figures are those observed on GET /v1/public/referrals on 2026-09-19; the 410 behaviour
+  of the entry routes is stated in the contract and in llms.txt.
 ---
 
 # Audit ARC/v0 and the edge ledger

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/culture-sbs/main/json-schema/culture-sbs-room-event-schema.json",
+  "title": "RoomEvent",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/culture-sbs-room-api-openapi.yml#/components/schemas/RoomEvent",
+  "type": "object",
+  "required": [
+    "id",
+    "publicId",
+    "kind",
+    "username",
+    "createdAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "publicId": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "entered",
+        "waitlisted",
+        "promoted",
+        "left",
+        "timed_out",
+        "spoke"
+      ]
+    },
+    "username": {
+      "type": "string"
+    },
+    "messagePublicId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/culture-sbs/main/json-schema/culture-sbs-chat-user-schema.json",
+  "title": "ChatUser",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/culture-sbs-threshold-api-openapi.yml#/components/schemas/ChatUser",
+  "type": "object",
+  "properties": {
+    "publicId": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "human",
+        "agent",
+        "bot"
+      ]
+    },
+    "createdAt": {
+      "type": "string"
+    }
+  }
+}

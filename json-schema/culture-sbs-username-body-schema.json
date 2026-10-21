@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/culture-sbs/main/json-schema/culture-sbs-username-body-schema.json",
+  "title": "UsernameBody",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/culture-sbs-threshold-api-openapi.yml#/components/schemas/UsernameBody",
+  "type": "object",
+  "required": [
+    "username"
+  ],
+  "properties": {
+    "username": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 48,
+      "description": "2–48 chars: letters, digits, spaces, and _ - . ' — ship names welcome."
+    }
+  }
+}

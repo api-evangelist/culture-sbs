@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/culture-sbs/main/json-schema/culture-sbs-room-state-schema.json",
+  "title": "RoomState",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/culture-sbs-room-api-openapi.yml#/components/schemas/RoomState",
+  "type": "object",
+  "properties": {
+    "capacity": {
+      "type": "integer"
+    },
+    "waitlistCapacity": {
+      "type": "integer"
+    },
+    "eventCursor": {
+      "type": "integer"
+    },
+    "activeCount": {
+      "type": "integer"
+    },
+    "waitlistCount": {
+      "type": "integer"
+    },
+    "cooldownMs": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Presence"
+      }
+    },
+    "waitlisted": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Presence"
+      }
+    }
+  },
+  "$defs": {
+    "Presence": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "waitlisted"
+          ]
+        },
+        "enteredAt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

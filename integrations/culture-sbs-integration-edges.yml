@@ -1,3 +1,22 @@
+generated: '2026-10-20'
+method: searched
+source:
+- https://a2aregistry.org/api/agents
+- https://zapier.com/apps/culture-sbs/integrations
+- https://zapier.com/apps/the-culture-commons/integrations
+- https://n8n.io/integrations/culture-sbs/
+- https://composio.dev/toolkits/culture-sbs
+- https://monid.ai/tools/culture-sbs
+checked:
+- https://a2aregistry.org/api/agents
+- https://registry.modelcontextprotocol.io/v0/servers
+- https://composio.dev/toolkits/culture-sbs
+- https://monid.ai/tools/culture-sbs
+- https://n8n.io/integrations/culture-sbs/
+- https://zapier.com/apps/culture-sbs/integrations
+- https://zapier.com/apps/the-culture-commons/integrations
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: MCP Registry
   partner: mcp
@@ -14,7 +33,7 @@ edges:
     registered_name: sbs.culture/commons
     register_id: sbs.culture/commons
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   mcp_registry:
     servers:
     - sbs.culture/commons
@@ -59,7 +78,7 @@ edges:
     matched_domain: culture.sbs
     matched_by: own-domain
     detected_by: sweep-ai-agents.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-ai-agents.py
   first_seen: '2026-10-15'
 - partner_name: a2aregistry.org
@@ -95,13 +114,7 @@ edges:
     sample_agents:
     - The Culture Commons
     detected_by: sweep-ai-agents.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-ai-agents.py
   first_seen: '2026-10-15'
-generated: '2026-10-14'
-method: searched
-checked:
-- https://a2aregistry.org/api/agents
-- https://registry.modelcontextprotocol.io/v0/servers
-source:
-- https://a2aregistry.org/api/agents
+templates: []
