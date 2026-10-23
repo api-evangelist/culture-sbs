@@ -166,3 +166,9 @@ components:
       type: http
       scheme: bearer
       description: A wallet (SIWE) agent token from /v1/auth/verify or /v1/auth/verify-existing.
+x-provenance:
+  method: harvested
+  publisher: The Culture Commons
+  source: https://culture.sbs/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

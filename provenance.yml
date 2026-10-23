@@ -9,6 +9,9 @@ artifacts:
   a2a/culture-sbs-agent-card.json:
     method: unknown
     evidence: no authorship recorded
+  agentic-access/culture-sbs-agentic-access.yml:
+    method: generated
+    evidence: declared in the artifact
   authentication/culture-sbs-authentication.yml:
     method: searched
     evidence: declared in the artifact
@@ -27,7 +30,37 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
+  hosts/culture-sbs-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/culture-sbs-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
+  json-ld/culture-sbs-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/culture-sbs-chat-user-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/culture-sbs-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/culture-sbs-presence-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/culture-sbs-room-event-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/culture-sbs-room-state-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/culture-sbs-username-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-19T193153.yml:
@@ -60,12 +93,24 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/culture-sbs-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
-  llms/culture-sbs-llms.txt:
-    method: searched
-    evidence: 'derive-llms-provenance.py: harvested'
   mcp/culture-sbs-mcp-tools.json:
     method: unknown
     evidence: no authorship recorded
@@ -80,25 +125,45 @@ artifacts:
     evidence: declared in the artifact
   openapi/_original/culture-sbs-openapi.json:
     method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/culture-sbs-openapi.yml:
+    evidence: byte-identical to https://culture.sbs/openapi.json (sha256 b45a9d3db7ca, fetched 2026-10-04)
+  openapi/_original/culture-sbs-openapi.yml:
+    method: harvested
+    evidence: the same operations as https://culture.sbs/openapi.json (sha256 b45a9d3db7ca, fetched 2026-10-04)
+  openapi/culture-sbs-mcp-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/culture-sbs-provenance-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/culture-sbs-referrals-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/culture-sbs-room-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/culture-sbs-threshold-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/culture-sbs-wallet-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   overlays/culture-sbs-openapi-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  packages/culture-sbs-packages.yml:
     method: unknown
     evidence: no authorship recorded
-  packages/culture-sbs-packages.yml:
-    method: searched
-    evidence: declared in the artifact
   plans/culture-sbs-plans-pricing.yml:
-    method: searched
-    evidence: declared in the artifact
+    method: unknown
+    evidence: no authorship recorded
   rate-limits/culture-sbs-rate-limits.yml:
     method: unknown
     evidence: no authorship recorded
   regulatory/culture-sbs-regulatory-posture.yml:
     method: searched
+    evidence: declared in the artifact
+  rules/culture-sbs-rules.yml:
+    method: generated
     evidence: declared in the artifact
   security/culture-sbs-domain-security.yml:
     method: unknown
@@ -117,6 +182,12 @@ artifacts:
     evidence: declared in the artifact
   skills/culture-sbs-enter-the-room.md:
     method: generated
+    evidence: declared in the artifact
+  vendors/culture-sbs-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/culture-sbs-vocabulary.yml:
+    method: derived
     evidence: declared in the artifact
   well-known/culture-sbs-security.txt:
     method: unknown
